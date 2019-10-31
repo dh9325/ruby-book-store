@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   get 'books/index'
   get 'books/show'
   get 'about/index'
+  get 'about' => 'about#index'
   root 'books#index'
 
   resources :books
