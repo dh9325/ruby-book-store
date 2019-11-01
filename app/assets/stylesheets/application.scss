@@ -1,5 +1,19 @@
+$theme-colors: (
+        "primary": #9B111E,
+        "secondary": #6c757d
+);
+
 @import "bootstrap";
+@import "books";
 
 body {
   padding-top: 3.5rem;
+}
+
+a.navbar-brand {
+  transition: text-shadow 0.1s;
+}
+
+a.navbar-brand:hover {
+  text-shadow: 0 0 10px white;
 }
