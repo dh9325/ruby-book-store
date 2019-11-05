@@ -1,4 +1,41 @@
 <div class="container">
-  <h1>Authors#index</h1>
-  <p>Find me in app/views/authors/index.html.erb</p>
+  <div class="row">
+    <p></p>
+  </div>
+  <div class="row">
+    <div class="col">
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active">Authors</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h1><%= @page_title %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <thead>
+        <th scope="col">ID</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">View</th>
+        </thead>
+        <tbody>
+        <% @authors.each do |author| %>
+          <tr>
+            <th scope="row"><%= author.id %></th>
+            <td><%= author.first_name %></td>
+            <td><%= author.last_name %></td>
+            <td><%= link_to 'View', author_path(author) %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
