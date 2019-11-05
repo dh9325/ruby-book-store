@@ -1,4 +1,39 @@
 <div class="container">
-  <h1>Publishers#index</h1>
-  <p>Find me in app/views/publishers/index.html.erb</p>
+  <div class="row">
+    <p></p>
+  </div>
+  <div class="row">
+    <div class="col">
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item active">Publishers</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h1><%= @page_title %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <table class="table">
+        <thead>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">View</th>
+        </thead>
+        <tbody>
+        <% @publishers.each do |publisher| %>
+          <tr>
+            <th scope="row"><%= publisher.id %></th>
+            <td><%= publisher.name %></td>
+            <td><%= link_to 'View', publisher_path(publisher) %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>

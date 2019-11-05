@@ -1,4 +1,32 @@
 <div class="container">
-  <h1>Publishers#new</h1>
-  <p>Find me in app/views/publishers/new.html.erb</p>
+  <div class="row">
+    <p></p>
+  </div>
+  <div class="row">
+    <div class="col">
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><%= link_to 'Publishers', publishers_path %></li>
+          <li class="breadcrumb-item active">New</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h1><%= @page_title %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= form_with model: @publisher do |f| %>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field(:name, class: 'form-control') %>
+        </div>
+        <%= f.submit('Create', class: 'btn btn-primary') %>
+      <% end %>
+    </div>
+  </div>
 </div>
+
