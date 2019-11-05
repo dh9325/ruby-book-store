@@ -1,4 +1,35 @@
 <div class="container">
-  <h1>Books#new</h1>
-  <p>Find me in app/views/books/new.html.erb</p>
+  <div class="row">
+    <p></p>
+  </div>
+  <div class="row">
+    <div class="col">
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><%= link_to 'Books', books_path %></li>
+          <li class="breadcrumb-item active">New</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h1><%= @page_title %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= form_with model: @book do |f| %>
+        <div class="form-group">
+          <%= f.label :title %>
+          <%= f.text_field(:title, class: 'form-control') %>
+        </div>
+        <div class="form-group">
+          <%= f.label :category_id %>
+          <%= f.text_field(:category_id, class: 'form-control') %>
+        </div>
+        <%= f.submit('Create', class: 'btn btn-primary') %>
+      <% end %>
+    </div>
+  </div>
 </div>
