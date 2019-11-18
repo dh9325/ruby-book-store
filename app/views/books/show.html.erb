@@ -1,4 +1,67 @@
 <div class="container">
-  <h1>Books#show</h1>
-  <p>Find me in app/views/books/show.html.erb</p>
+  <div class="row">
+    <p></p>
+  </div>
+  <div class="row">
+    <div class="col">
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><%= link_to 'Books', books_path %></li>
+          <li class="breadcrumb-item active">View</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h1><%= @page_title %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <%= form_with model: @book do |f| %>
+        <div class="form-group">
+          <%= f.label :title %>
+          <%= f.text_field(:title, class: 'form-control', disabled: true) %>
+        </div>
+        <div class="form-group">
+          <%= f.label :category_id %>
+          <%= f.text_field(:category_id, class: 'form-control', disabled: true) %>
+        </div>
+        <div class="form-group">
+          <%= f.label :author_id %>
+          <%= f.text_field(:author_id, class: 'form-control', disabled: true) %>
+        </div>
+        <div class="form-group">
+          <%= f.label :publisher_id %>
+          <%= f.text_field(:publisher_id, class: 'form-control', disabled: true) %>
+        </div>
+        <div class="form-group">
+          <%= f.label :isbn, "ISBN" %>
+          <%= f.text_field(:isbn, class: 'form-control', disabled: true) %>
+        </div>
+        <div class="form-group">
+          <%= f.label :year %>
+          <%= f.text_field(:year, class: 'form-control', disabled: true) %>
+        </div>
+        <div class="form-group">
+          <%= f.label :price %>
+          <%= f.text_field(:price, class: 'form-control', disabled: true) %>
+        </div>
+        <div class="form-group">
+          <%= f.label :exceprt %>
+          <%= f.text_area(:exceprt, class: 'form-control', disabled: true, rows: 10) %>
+        </div>
+        <div class="form-group">
+          <%= f.label :format %>
+          <%= f.text_field(:format, class: 'form-control', disabled: true) %>
+        </div>
+        <div class="form-group">
+          <%= f.label :pages %>
+          <%= f.text_field(:pages, class: 'form-control', disabled: true) %>
+        </div>
+        To buy <%= link_to "click here", @book.buy, target: "_blank" %>
+      <% end %>
+    </div>
+  </div>
 </div>
