@@ -19,14 +19,57 @@
   </div>
   <div class="row">
     <div class="col">
-      <%= form_with model: @book do |f| %>
+      <%= form_with scope: :book, url: books_path, local: true do |f| %>
+        <% if @book.errors.any? %>
+          <ul>
+            <% @book.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+          </ul>
+        <% end %>
         <div class="form-group">
           <%= f.label :title %>
           <%= f.text_field(:title, class: 'form-control') %>
         </div>
         <div class="form-group">
           <%= f.label :category_id %>
-          <%= f.text_field(:category_id, class: 'form-control') %>
+          <%= f.collection_select(:category_id, Category.all, :id, :name, {prompt: true}, {class: 'form-control'}) %>
+        </div>
+        <div class="form-group">
+          <%= f.label :author_id %>
+          <%= f.collection_select(:author_id, Author.all, :id, :name, {prompt: true}, {class: 'form-control'}) %>
+        </div>
+        <div class="form-group">
+          <%= f.label :publisher_id %>
+          <%= f.collection_select(:publisher_id, Publisher.all, :id, :name, {prompt: true}, {class: 'form-control'}) %>
+        </div>
+        <div class="form-group">
+          <%= f.label :isbn %>
+          <%= f.text_field(:isbn, class: 'form-control') %>
+        </div>
+        <div class="form-group">
+          <%= f.label :year %>
+          <%= f.text_field(:year, class: 'form-control') %>
+        </div>
+        <div class="form-group">
+          <%= f.label :price %>
+          <%= f.text_field(:price, class: 'form-control') %>
+        </div>
+        <div class="form-group">
+          <%= f.label :exceprt %>
+          <%= f.text_field(:exceprt, class: 'form-control') %>
+        </div>
+        <div class="form-group">
+          <%= f.label :format %>
+          <%= f.text_field(:format, class: 'form-control') %>
+        </div>
+        <div class="form-group">
+          <%= f.label :pages %>
+          <%= f.text_field(:pages, class: 'form-control') %>
+        </div>
+        <div class="form-group">
+          <%= f.label :buy %>
+          <%= f.text_field(:buy, class: 'form-control') %>
         </div>
         <%= f.submit('Create', class: 'btn btn-primary') %>
       <% end %>
